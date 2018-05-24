@@ -10,6 +10,14 @@
 @green-active:  #00ffd6; 
 @text:          #333;
 
-.tim-background-black(alpha) {
-  background-color: rgba(0, 0, 0, alpha);
+.tim-background-black(@alpha) {
+  background-color: rgba(0, 0, 0, @alpha);
+}
+
+.transform-scale(@val) {
+  transform: scale(@val);
+  -ms-transform:scale(@val);
+  -webkit-transform:scale(@val);
+  -o-transform:scale(@val);
+  -moz-transform:scale(@val);
 }

@@ -5,58 +5,101 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
+  transition: top 0.5s;
+  background-color: rgba(0, 0, 0, 0.9);
 }
-.tim-layout .close-figure {
-  margin-right: 0.5rem;
-  color: #CCCCCC;
-  font-size: 0.5rem;
-  line-height: 1.5rem;
-  cursor: pointer;
-}
-.tim-layout .el-icon-arrow-left,
-.tim-layout .el-icon-arrow-right {
-  position: absolute;
-  top: 45%;
-  padding: 0.5rem;
-  font-size: 0.75rem;
-  border: 2px solid #CCCCCC;
-  border-radius: 50%;
-  color: #CCCCCC;
-  cursor: pointer;
-}
-.tim-layout .el-icon-arrow-left {
-  left: 0.75rem;
-}
-.tim-layout .el-icon-arrow-right {
-  right: 0.75rem;
-}
-.tim-figure-header,
-.tim-figure-footer {
+.tim-layout .tim-figure-header,
+.tim-layout .tim-figure-footer {
   position: absolute;
   width: 100%;
   height: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.35);
 }
-.tim-figure-header {
+.tim-layout .tim-figure-header {
   text-align: right;
 }
-.tim-figure-footer {
+.tim-layout .tim-figure-header i {
+  margin-right: 0.5rem;
+  line-height: 1.5rem;
+  cursor: pointer;
+}
+.tim-layout .tim-figure-header i:hover {
+  color: #32baa4;
+}
+.tim-layout .tim-figure-header .icon-guanbi1 {
+  display: inline-block;
+  transition: transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  /* Firefox 4 */
+  -webkit-transition: -webkit-transform 0.5s;
+  /* Safari and Chrome */
+  -o-transition: -o-transform 0.5s;
+  /* Opera */
+}
+.tim-layout .tim-figure-header .icon-guanbi1:hover {
+  transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  /* Firefox 4 */
+  -webkit-transform: rotate(180deg);
+  /* Safari and Chrome */
+  -o-transform: rotate(180deg);
+  /* Opera */
+}
+.tim-layout .tim-figure-footer {
   bottom: 0;
 }
-.tim-figure-footer .figure-list {
+.tim-layout .tim-figure-footer .figure-list {
   margin: 0.25rem;
   width: 1.75rem;
   height: 1rem;
-  overflow: hidden;
+  border: 1px solid #000000;
+  border-radius: 4px;
   display: inline-block;
+  overflow: hidden;
   cursor: pointer;
 }
-.tim-figure-footer .figure-list img {
-  width: 100%;
-  height: 100%;
+.tim-layout .tim-figure-footer .figure-list:hover {
+  border-color: #32baa4;
 }
-.figur-view {
-  height: 100%;
+.tim-layout .tim-figure-footer .figure-list img {
+  width: 100%;
+  height: auto;
+  transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+}
+.tim-layout [class|=icon] {
+  font-size: 0.75rem;
+  color: #CCCCCC;
+  z-index: 1;
+}
+.tim-layout .icon-xiangzuo1,
+.tim-layout .icon-xiangyou1 {
+  position: absolute;
+  top: 45%;
+  padding: 0.5rem;
+  border: 2px solid #CCCCCC;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.tim-layout .icon-xiangzuo1 {
+  left: 0.75rem;
+}
+.tim-layout .icon-xiangyou1 {
+  right: 0.75rem;
+}
+.tim-layout .figur-view {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-transform: -moz-translate(-50%, -50%);
+  -webkit-transform: -webkit-translate(-50%, -50%);
+  -o-transform: -o-translate(-50%, -50%);
 }

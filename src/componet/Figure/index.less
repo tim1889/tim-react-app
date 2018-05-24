@@ -1,5 +1,27 @@
 @import "../../assets/css/mix.less";
 
+.tim-hover-rotate(@deg, @time) {
+  transition: transform @time;
+  -moz-transition: -moz-transform @time; /* Firefox 4 */
+  -webkit-transition: -webkit-transform @time; /* Safari and Chrome */
+  -o-transition: -o-transform @time; /* Opera */
+  &:hover {
+    transform: rotate(@deg);  
+    -moz-transform: rotate(@deg); /* Firefox 4 */
+    -webkit-transform: rotate(@deg); /* Safari and Chrome */
+    -o-transform: rotate(@deg); /* Opera */    
+  }
+}
+
+.tim-center(@pos) {
+  position: @pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-transform: -moz-translate(-50%, -50%);
+  -webkit-transform: -webkit-translate(-50%, -50%);
+  -o-transform: -o-translate(-50%, -50%); 
+}
 
 .tim-layout {
   position: fixed;
@@ -8,62 +30,75 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
-  .close-figure {
-    margin-right: 20/@bs;
-    color: @gray;
-    font-size:20/@bs;
-    line-height: 60/@bs;
-    cursor: pointer;
+  transition: top 0.5s;
+  .tim-background-black(0.9);
+  .tim-figure-header, .tim-figure-footer {
+    position: absolute;
+    width: 100%;
+    height: 60/@bs;
+    z-index: 1;
+    .tim-background-black(0.35);
   }
-  .el-icon-arrow-left, .el-icon-arrow-right {
+  .tim-figure-header {
+    text-align: right;
+    i {
+      margin-right: 20/@bs;
+      line-height: 60/@bs;   
+      cursor: pointer;
+      &:hover {
+        color: @green;
+      }
+    }
+    .icon-guanbi1 {
+      display: inline-block;
+      .tim-hover-rotate(180deg, 0.5s);
+    }
+  }  
+  .tim-figure-footer {
+    bottom: 0;
+    .figure-list {
+      margin: 10/@bs;
+      width: 70/@bs;
+      height: 40/@bs;
+      border: 1px solid @black;
+      border-radius: 4px;
+      display: inline-block;
+      overflow: hidden;
+      cursor: pointer;
+      &:hover {
+        border-color: @green;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        .transform-scale(1.5);
+      }
+    }
+  }
+  [class|=icon] {
+    font-size:30/@bs;
+    color: @gray;
+    z-index: 1;
+  }
+  .icon-xiangzuo1, .icon-xiangyou1 {
     position: absolute;
     top: 45%;
     padding: 20/@bs;
-    font-size: 30/@bs;
     border: 2px solid @gray;
     border-radius: 50%;
-    color: @gray;
     cursor: pointer;
   }
-  .el-icon-arrow-left {
+  .icon-xiangzuo1 {
     left: 30/@bs;
   }
-  .el-icon-arrow-right {
+  .icon-xiangyou1 {
     right: 30/@bs;
+  }  
+  .figur-view {
+    max-width: 100%;
+    max-height: 100%;
+    .tim-center(absolute);
   }
 }
 
-.tim-figure-header, .tim-figure-footer {
-  position: absolute;
-  width: 100%;
-  height: 60/@bs;
-  // .tim-background-black(0.8);
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.tim-figure-header {
-  text-align: right;
-}
-
-.tim-figure-footer {
-  bottom: 0;
-  .figure-list {
-    margin: 10/@bs;
-    width: 70/@bs;
-    height: 40/@bs;
-    // border-radius: 4px;
-    overflow: hidden;
-    display: inline-block;
-    cursor: pointer;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
-.figur-view {
-  height: 100%;
-}

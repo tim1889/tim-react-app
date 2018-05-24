@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import registerServiceWorker from './registerServiceWorker';
 import 'element-theme-default';
 require('./assets/js/resize.js');
+require('./assets/css/icon/iconfont.css');
 require('./assets/css/main.css');
 
 ReactDOM.render(
