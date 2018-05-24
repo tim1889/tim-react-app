@@ -1,0 +1,88 @@
+@import "../../assets/css/mix.less";
+
+.tim-nav {
+  position: fixed;
+  width: 100%;
+  min-width: 340px;  
+  height: 60/@bs;
+  background-color: @green;
+  line-height: 50/@bs;
+  color: @gray-light;  
+  z-index: 10;
+  .tim-nav-logo {
+    margin: 0 20/@bs;
+    width: 200/@bs;
+    height: 60/@bs;
+    display: inline-block;
+    text-align: center;
+    img {
+      margin-top: 10/@bs;
+      width: auto;
+      height: 40/@bs;
+      vertical-align: middle;
+    }   
+  }
+  nav {
+    display: inline-block;
+    vertical-align: middle;
+    a {
+      font-size: 16px;
+      color: @gray-light;
+    }
+  }
+  .tim-nav-link {
+    margin: 0 10/@bs;
+  }
+  .tim-nav-userinfo {
+    float: right;
+    margin-right: 20/@bs;
+    font-size: 16px;
+    img {
+      margin: 10/@bs;
+      width: 40/@bs;
+      height: 40/@bs;
+      border: 1px solid @green;
+      border-radius: 50%;
+      vertical-align: middle;      
+    }
+  }
+}
+
+
+.tim-nav-menu {
+  position: fixed;
+  top: 60/@bs;
+  bottom: 0;
+  // padding: 20/@bs;
+  width: 260/@bs;
+  // color: @green;
+  background-color: @text;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  .el-menu--dark {
+    .el-submenu__title {
+      background-color: @text;
+      color: @gray-light;
+    }
+    .el-submenu .el-menu {
+      background-color: #333;      
+    }
+    a {
+      color: @gray-light;      
+    }
+  }
+}
+.tim-scroll-hidden {  
+  position: fixed;
+  top: 60/@bs;
+  bottom: 0;
+  left: 236/@bs;
+  width: 24px;
+  background-color: @white;
+}
+
+@media screen and (max-width: 768px) { 
+  .tim-nav-menu {
+    display: none;
+  }
+}

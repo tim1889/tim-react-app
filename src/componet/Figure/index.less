@@ -1,0 +1,69 @@
+@import "../../assets/css/mix.less";
+
+
+.tim-layout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  .close-figure {
+    margin-right: 20/@bs;
+    color: @gray;
+    font-size:20/@bs;
+    line-height: 60/@bs;
+    cursor: pointer;
+  }
+  .el-icon-arrow-left, .el-icon-arrow-right {
+    position: absolute;
+    top: 45%;
+    padding: 20/@bs;
+    font-size: 30/@bs;
+    border: 2px solid @gray;
+    border-radius: 50%;
+    color: @gray;
+    cursor: pointer;
+  }
+  .el-icon-arrow-left {
+    left: 30/@bs;
+  }
+  .el-icon-arrow-right {
+    right: 30/@bs;
+  }
+}
+
+.tim-figure-header, .tim-figure-footer {
+  position: absolute;
+  width: 100%;
+  height: 60/@bs;
+  // .tim-background-black(0.8);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.tim-figure-header {
+  text-align: right;
+}
+
+.tim-figure-footer {
+  bottom: 0;
+  .figure-list {
+    margin: 10/@bs;
+    width: 70/@bs;
+    height: 40/@bs;
+    // border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.figur-view {
+  height: 100%;
+}

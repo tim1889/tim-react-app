@@ -1,0 +1,41 @@
+@import './mix.less';
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 40px;
+}
+
+body {
+  font-size: 18/@bs;
+  color: @text;
+}
+
+a {
+  color: @green;  
+  text-decoration: none;
+  &:hover {
+    color: @green-hover;
+  }
+}
+
+ul, ol, li {
+  list-style-type: none;
+}
+
+.tim-app-body {
+  position: relative;
+  top: 60/@bs;
+  margin-left: 240/@bs;
+  padding: 20/@bs;
+  overflow-x: hidden;
+}
+
+.text-green {
+  color: @green;
+}

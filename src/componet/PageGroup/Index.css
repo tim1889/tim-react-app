@@ -1,0 +1,151 @@
+.btn-base {
+  cursor: pointer;
+  min-width: 100px;
+  min-height: 30px;
+  font-size: 14px;
+  line-height: 14px;
+  border-radius: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.border-btn {
+  border-width: 1px;
+  border-style: solid;
+}
+ul {
+  list-style: none;
+}
+.page-group {
+  float: right;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.page-group ul {
+  color: #000000;
+  display: inline-block;
+  vertical-align: middle;
+}
+.page-group ul li {
+  float: left;
+  padding: 3px 7px;
+  margin-right: 5px;
+  border: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 50%;
+  font-size: 10px;
+  cursor: pointer;
+}
+.page-group ul li:first-child {
+  font-weight: 500;
+}
+.page-group ul li:hover {
+  cursor: pointer;
+  background-color: #fafafa;
+}
+.page-group ul .fs-pagination-first,
+.page-group ul .fs-pagination-last {
+  border: 0;
+  border-radius: 0;
+}
+.page-group ul .fs-pagination-prev,
+.page-group ul .fs-pagination-next {
+  border-radius: 20px;
+}
+.page-group ul .fs-active {
+  color: #FFFFFF;
+  background-color: #32baa4;
+}
+.page-group ul .fs-active:hover {
+  background-color: #12b099;
+}
+.page-group span {
+  vertical-align: middle;
+}
+.page-group input {
+  display: inline-block;
+  width: 40px;
+  height: 15px;
+  padding: 5px;
+  text-align: center;
+  border: #727171;
+  vertical-align: middle;
+  border-width: 1px;
+  border-style: solid;
+}
+.page-group button {
+  display: inline-block;
+  cursor: pointer;
+  min-width: 50px;
+  min-height: 28px;
+  border-radius: 2px;
+  vertical-align: middle;
+  color: #727171;
+  background-color: transparent;
+  border-color: #727171;
+  border-width: 1px;
+  border-style: solid;
+}
+.page-group button:hover {
+  color: #727171;
+  background-color: #fafafa;
+  border-color: #727171;
+}
+.page-group-mini {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.page-group-mini ul {
+  color: #000000;
+  display: inline-block;
+  vertical-align: middle;
+}
+.page-group-mini ul li {
+  float: left;
+  padding: 1px 5px;
+  margin-right: 5px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+.page-group-mini ul li:first-child {
+  font-weight: 500;
+}
+.page-group-mini ul .fs-active {
+  color: #32baa4;
+}
+.page-group-mini ul .fs-active:hover {
+  color: #12b099;
+}
+.page-group-mini span {
+  vertical-align: middle;
+}
+.page-group-mini input {
+  display: inline-block;
+  width: 30px;
+  height: 10px;
+  padding: 5px;
+  text-align: center;
+  border: #727171;
+  vertical-align: middle;
+  border-width: 1px;
+  border-style: solid;
+}
+.page-group-mini button {
+  display: inline-block;
+  cursor: pointer;
+  min-width: 50px;
+  min-height: 28px;
+  border-radius: 2px;
+  vertical-align: middle;
+  color: #727171;
+  background-color: transparent;
+  border-color: #727171;
+  border-width: 1px;
+  border-style: solid;
+}
+.page-group-mini button:hover {
+  color: #727171;
+  background-color: #fafafa;
+  border-color: #727171;
+}

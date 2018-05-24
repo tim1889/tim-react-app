@@ -1,0 +1,7 @@
+.tim-table {
+  width: 100%;
+}
+.tim-table thead {
+  border-bottom: 2px solid #333;
+  line-height: 1rem;
+}
