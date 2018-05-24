@@ -6,7 +6,7 @@
   height: 100%;
   text-align: center;
   z-index: 1000;
-  transition: top 0.5s;
+  transition: top 0.2s;
   background-color: rgba(0, 0, 0, 0.9);
 }
 .tim-layout .tim-figure-header,

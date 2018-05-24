@@ -29,21 +29,24 @@ export default class Figure extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      isView: true,
+      isView: this.props.isView | false,
       indexImg: 0,
-      imgList: [
-        require('./img/test1.jpg'),
-        require('./img/test2.jpg'),
-        require('./img/test3.jpg'),
-        require('./img/test4.jpg'),
-        require('./img/test5.jpg')
-      ]
     };
+  }
+  
+  componentWillReceiveProps (nextProps) {
+    if (this.state.isView !== nextProps.isView) {
+      this.setState({
+        isView: nextProps.isView,
+        indexImg: nextProps.indexImg | 0,
+      });
+    }
   }
 
   render () {
     const { ...state } = this.state;
-    const indexImg = this.state.imgList[this.state.indexImg];
+    const imgList = typeof this.props.imgList === 'string' ? [this.props.imgList] : this.props.imgList;
+    const viewImg = imgList[state.indexImg];
     return (
       <Layout>
         <div className="tim-layout" style={{top: state.isView ? '0' : '100%'}}>
@@ -67,10 +70,10 @@ export default class Figure extends Component {
                 })
               }}>
             </i>
-            <img className="figur-view" src={indexImg} alt={state.imgUrl}/>
+            <img className="figur-view" src={viewImg} alt={state.imgUrl}/>
             <i className="icon-xiangyou1"
               onClick={() => {
-                if (state.indexImg === (state.imgList.length - 1)) { return; }
+                if (state.indexImg === (imgList.length - 1)) { return; }
                 const i = state.indexImg + 1;
                 this.setState({
                   indexImg: i
@@ -81,7 +84,7 @@ export default class Figure extends Component {
           <footer className="tim-figure-footer">
             <ul>
               {
-                state.imgList.map((item, index) => 
+                imgList.map((item, index) => 
                   <li className="figure-list" 
                     key={index}
                     onClick={() => {
