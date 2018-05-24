@@ -53,25 +53,38 @@
   position: fixed;
   top: 60/@bs;
   bottom: 0;
-  // padding: 20/@bs;
   width: 260/@bs;
-  // color: @green;
+  color: @gray-light;
   background-color: @text;
   overflow-x: hidden;
   overflow-y: scroll;
-  .el-menu--dark {
-    .el-submenu__title {
-      background-color: @text;
-      color: @gray-light;
-    }
-    .el-submenu .el-menu {
-      background-color: #333;      
-    }
-    a {
-      color: @gray-light;      
+  .level-1 {
+    padding: 10/@bs; 
+    font-size: 24/@bs;
+    display: block;
+    i {
+      margin-right: 10/@bs;
     }
   }
+  ul {
+    overflow: hidden;
+    transition: height 0.2s;
+    li {
+      padding: 10/@bs;
+      padding-left: 46/@bs;
+    }
+  }
+  a {
+    color: @gray-light;      
+  }
+  .menu-open {
+    height: auto;
+  }
+  .menu-close {
+    height: 0;
+  }
 }
+
 .tim-scroll-hidden {  
   position: fixed;
   top: 60/@bs;

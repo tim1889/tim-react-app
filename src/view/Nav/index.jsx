@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from 'element-react';
 require('./index.css');
 export default class User extends Component {
   constructor() {
     super();
     this.state = {
       nav: [{
-        name: 'Home',
+        name: 'Show',
         link: '/home',
       },{
         name: 'User',
@@ -15,7 +14,7 @@ export default class User extends Component {
       }],
       menus: [{
         name: 'leve1',
-        icon: 'menu',
+        icon: 'shenfen',
         childs: [{
           name: 'leve2',
           link: '',
@@ -25,7 +24,7 @@ export default class User extends Component {
         }]
       }, {
         name: 'leve1',
-        icon: 'share',
+        icon: 'bangzhuzhongxin',
         childs: [{
           name: 'leve2',
           link: '',
@@ -41,7 +40,7 @@ export default class User extends Component {
         }]
       }, {
         name: 'leve1',
-        icon: 'setting',
+        icon: 'zuobiao',
         childs: [{
           name: 'leve2',
           link: '',
@@ -55,11 +54,13 @@ export default class User extends Component {
           name: 'leve2',
           link: '',
         }]
-      }]
+      }],
+      isActive: ''
     }
   }
 
   render() {
+    const {...state} = this.state;
     return (
       <div>
         <div className="tim-nav">
@@ -87,31 +88,30 @@ export default class User extends Component {
         </div>
 
         <menu className="tim-nav-menu">
-          <Menu 
-            theme="dark"
-            onOpen={() => console.log('onOpen')} 
-            onClose={() => console.log('onClose')}>
-            {
-              this.state.menus.map((item, index) => 
-                <Menu.SubMenu
-                  className="tim-menu-level1"
-                  index={index.toString()}
-                  key={index}
-                  title={<span>
-                    <i className={"el-icon-" + item.icon}></i>
-                    <span>{item.name}</span>
-                  </span>}>
+          {
+            this.state.menus.map((item, index) => 
+              <div key={index}>
+                <span 
+                  className="level-1"
+                  onClick={() => {
+                    const i = state.isActive === index ? '' : index;
+                    this.setState({ isActive: i });
+                  }}>
+                  <i className={"icon-" + item.icon}></i>
+                  {item.name}
+                </span>
+                <ul className={state.isActive === index ? 'menu-open' : 'menu-close'}>
                   {
                     item.childs.map((cItem, cIndex) => 
-                      <Menu.Item index={index + '-' + cIndex} key={cIndex}>
+                      <li key={cIndex}>
                         <Link to={cItem.link}>{cItem.name}</Link>
-                      </Menu.Item>
+                      </li>
                     )
                   }
-                </Menu.SubMenu>
-              )
-            }
-          </Menu>
+                </ul>
+              </div>
+            )
+          }
         </menu>
         <div className="tim-scroll-hidden"/>
         

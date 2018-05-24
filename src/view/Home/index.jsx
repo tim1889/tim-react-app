@@ -25,27 +25,34 @@ export default class Home extends Component {
     const {...state} = this.state;
     return (
       <div>
-        <Figure 
-          isView={state.isView}
-          indexImg={state.indexImg}
-          imgList={state.imgList}
-        />
-        {
-          state.imgList.map((item, index) => 
-            <div className="tim-card" key={index}>
-              <img 
-                src={item} 
-                alt="" 
-                onClick={() =>
-                  this.setState({
-                    indexImg: index,
-                    isView: true
-                  })
-                }
-              />
-            </div>
-          )
-        }
+        <section>
+          <h2>画 廊</h2>
+          <Figure 
+            isView={state.isView}
+            indexImg={state.indexImg}
+            imgList={state.imgList}
+          />
+          {
+            state.imgList.map((item, index) => 
+              <div className="tim-card" key={index}>
+                <img 
+                  src={item} 
+                  alt="" 
+                  onClick={() =>
+                    this.setState({
+                      indexImg: index,
+                      isView: true
+                    })
+                  }
+                />
+              </div>
+            )
+          }
+        </section>
+
+        <section>
+          <h2></h2>
+        </section>
       </div>
     )
   }
