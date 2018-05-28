@@ -99,8 +99,11 @@ export default class User extends Component {
                   }}>
                   <i className={"icon-" + item.icon}></i>
                   {item.name}
+                  <i className={state.isActive === index ? "icon-xiangxia2" : 'icon-xiangyou1'}></i>
                 </span>
-                <ul className={state.isActive === index ? 'menu-open' : 'menu-close'}>
+                <ul style={{"height": state.isActive === index 
+                  ? (1.1 * item.childs.length + 'rem') 
+                  : 0}}>
                   {
                     item.childs.map((cItem, cIndex) => 
                       <li key={cIndex}>

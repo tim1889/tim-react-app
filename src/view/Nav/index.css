@@ -63,9 +63,13 @@
 .tim-nav-menu .level-1 i {
   margin-right: 0.25rem;
 }
+.tim-nav-menu .level-1 .icon-xiangxia2,
+.tim-nav-menu .level-1 .icon-xiangyou1 {
+  margin-left: 2.25rem;
+}
 .tim-nav-menu ul {
   overflow: hidden;
-  transition: height 0.2s;
+  transition: height 0.5s;
 }
 .tim-nav-menu ul li {
   padding: 0.25rem;
@@ -73,12 +77,6 @@
 }
 .tim-nav-menu a {
   color: #fafafa;
-}
-.tim-nav-menu .menu-open {
-  height: auto;
-}
-.tim-nav-menu .menu-close {
-  height: 0;
 }
 .tim-scroll-hidden {
   position: fixed;
