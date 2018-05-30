@@ -13,46 +13,25 @@ export default class User extends Component {
         link: '/user',
       }],
       menus: [{
-        name: 'leve1',
+        name: '基础',
         icon: 'shenfen',
-        childs: [{
-          name: 'leve2',
-          link: '',
-        }, {
-          name: 'leve2',
-          link: '',
-        }]
+        childs: []
       }, {
-        name: 'leve1',
+        name: '数据',
         icon: 'bangzhuzhongxin',
         childs: [{
-          name: 'leve2',
-          link: '',
+          name: '树形结构',
+          link: '/tree',
         }, {
-          name: 'leve2',
-          link: '',
-        }, {
-          name: 'leve2',
-          link: '',
-        }, {
-          name: 'leve2',
-          link: '',
+          name: '分页',
+          link: '/tree',
         }]
       }, {
-        name: 'leve1',
+        name: '模态',
         icon: 'zuobiao',
         childs: [{
-          name: 'leve2',
-          link: '',
-        }, {
-          name: 'leve2',
-          link: '',
-        }, {
-          name: 'leve2',
-          link: '',
-        }, {
-          name: 'leve2',
-          link: '',
+          name: '画廊',
+          link: '/gallery',
         }]
       }],
       isActive: ''
