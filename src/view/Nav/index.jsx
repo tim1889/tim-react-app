@@ -99,7 +99,7 @@ export default class User extends Component {
                   }}>
                   <i className={"icon-" + item.icon}></i>
                   {item.name}
-                  <i className={state.isActive === index ? "icon-xiangxia2" : 'icon-xiangyou1'}></i>
+                  <i className={state.isActive === index ? 'icon-xiangxia2' : 'icon-xiangyou1'}></i>
                 </span>
                 <ul style={{"height": state.isActive === index 
                   ? (1.1 * item.childs.length + 'rem') 

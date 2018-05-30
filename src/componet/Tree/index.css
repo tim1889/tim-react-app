@@ -1,0 +1,29 @@
+.tim-tree-box {
+  margin: 0.25rem;
+  padding: 0.1rem;
+  width: 15rem;
+  background-color: #32baa4;
+  border-radius: 6px;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  line-height: 1rem;
+}
+.tim-tree-box .time-tree-item {
+  width: 33%;
+  background-color: #ffffff;
+}
+.tim-tree-box .time-tree-item li {
+  padding-left: 0.25rem;
+  cursor: pointer;
+}
+.tim-tree-box .time-tree-item li i {
+  margin-right: 0.15rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: #32baa4;
+  vertical-align: middle;
+}
+.tim-tree-box .time-tree-item li:hover {
+  background-color: #fafafa;
+}

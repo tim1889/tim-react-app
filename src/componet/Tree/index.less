@@ -1,0 +1,31 @@
+@import "../../assets/css/mix.less";
+
+.tim-tree-box {
+  margin: 10/@bs;
+  padding: 4/@bs;
+  width: 600/@bs;
+  background-color: @green;
+  border-radius: 6px;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  line-height: 40/@bs;
+  .time-tree-item {
+    width: 33%;
+    .tim-background-white(1);
+    li {
+      padding-left: 10/@bs;
+      cursor: pointer;
+      i {
+        margin-right: 6/@bs;
+        font-size: 24/@bs;
+        font-weight: bold;
+        color: @green;
+        vertical-align: middle;
+      }
+      &:hover {
+        background-color: @gray-light;
+      }
+    }
+  }
+}

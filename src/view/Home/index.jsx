@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 import Figure from '../../componet/Figure/index.jsx';
+import Tree from '../../componet/Tree/index.jsx';
 require('./index.css');
 
 
@@ -51,7 +52,8 @@ export default class Home extends Component {
         </section>
 
         <section>
-          <h2></h2>
+          <h2>树形控件</h2>
+          <Tree/>
         </section>
       </div>
     )

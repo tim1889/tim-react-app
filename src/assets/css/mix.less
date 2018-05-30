@@ -10,18 +10,46 @@
 @green-active:  #00ffd6; 
 @text:          #333;
 
+//黑色背景
 .tim-background-black(@alpha) {
   background-color: rgba(0, 0, 0, @alpha);
 }
 
+//白色背景
 .tim-background-white(@alpha) {
   background-color: rgba(255, 255, 255, @alpha);
 }
 
+//缩放
 .transform-scale(@val) {
   transform: scale(@val);
   -ms-transform:scale(@val);
   -webkit-transform:scale(@val);
   -o-transform:scale(@val);
   -moz-transform:scale(@val);
+}
+
+//旋转动画
+.tim-hover-rotate(@deg, @time) {
+  transition: transform @time;
+  -moz-transition: -moz-transform @time; /* Firefox 4 */
+  -webkit-transition: -webkit-transform @time; /* Safari and Chrome */
+  -o-transition: -o-transform @time; /* Opera */
+  &:hover {
+    transform: rotate(@deg);  
+    -moz-transform: rotate(@deg); /* Firefox 4 */
+    -webkit-transform: rotate(@deg); /* Safari and Chrome */
+    -o-transform: rotate(@deg); /* Opera */    
+  }
+}
+
+//居中定位
+.tim-center(@pos) {
+  position: @pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-transform: -moz-translate(-50%, -50%);
+  -webkit-transform: -webkit-translate(-50%, -50%);
+  -o-transform: -o-translate(-50%, -50%); 
 }
