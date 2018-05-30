@@ -9,11 +9,12 @@ const Index = () => <div></div>;
 export default class App extends Component {
   render() {
     return (
-      <Nav>
+      <div>
+        <Nav/>
         <Route path='/' component={Index}/>
         <Route path='/home' component={Home}/>
         <Route path='/user' component={User}/>
-      </Nav>
+      </div>
     );
   }
 };
