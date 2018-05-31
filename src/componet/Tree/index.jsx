@@ -89,7 +89,10 @@ export default class Figure extends Component {
                     indexLeve2: index
                   })
                 }}>
-                <i className="icon-fangxingweixuanzhong"></i>
+                <i className="icon-fangxingweixuanzhong"
+                  onClick={() => {
+                    console.log('~~~~')
+                  }}></i>
                 <span>{item.name}</span>
               </li>
             )
