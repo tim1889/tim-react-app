@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import ReactDOM from 'react-dom';
-require('./index.css');
+require('./style.css');
 const layoutRoot = document.getElementById('layout-root');
 
 class Layout extends Component {
@@ -25,15 +25,16 @@ class Layout extends Component {
   }
 }
 
-export default class Figure extends Component {
+
+export default class Figure extends PureComponent {
   constructor (props) {
     super(props);
     this.state = {
-      isView: this.props.isView | false,
+      isView: false,
       indexImg: 0,
     };
   }
-  
+
   componentWillReceiveProps (nextProps) {
     if (this.state.isView !== nextProps.isView) {
       this.setState({
@@ -42,7 +43,7 @@ export default class Figure extends Component {
       });
     }
   }
-
+  
   render () {
     const { ...state } = this.state;
     const imgList = typeof this.props.imgList === 'string' ? [this.props.imgList] : this.props.imgList;
@@ -56,6 +57,8 @@ export default class Figure extends Component {
             onClick={() => {
               this.setState({
                 isView: false
+              }, () => { 
+                console.log(this.state.isView)
               });
             }}>
           </i>
@@ -67,7 +70,8 @@ export default class Figure extends Component {
                 const i = state.indexImg - 1;
                 this.setState({
                   indexImg: i
-                })
+                });
+                console.log()
               }}>
             </i>
             <img className="figur-view" src={viewImg} alt={state.imgUrl}/>
@@ -102,4 +106,4 @@ export default class Figure extends Component {
       </Layout>
     );
   }
-} 
+}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Menu from '../../componet/Menu/index.jsx';
-import Gallery from '../../componet/Gallery/index.jsx';
+import Gallery from '../../componet/Gallery/Index.jsx';
 import Tree from '../../componet/Tree/index.jsx';
 require('./index.css');
 
@@ -9,28 +8,6 @@ export default class Home extends Component {
   constructor () {
     super();
     this.state = {
-      menu: [{
-        name: '基础',
-        icon: 'shenfen',
-        childs: []
-      }, {
-        name: '数据',
-        icon: 'bangzhuzhongxin',
-        childs: [{
-          name: '树形结构',
-          link: '/tree',
-        }, {
-          name: '分页',
-          link: '/tree',
-        }]
-      }, {
-        name: '模态',
-        icon: 'zuobiao',
-        childs: [{
-          name: '画廊',
-          link: '/gallery',
-        }]
-      }],
       isView: false,
       indexImg: 0,
       imgList: [
@@ -45,9 +22,9 @@ export default class Home extends Component {
 
 
   render () {
-    const {...state} = this.state;
+    const { ...state } = this.state;
     return (
-      <Menu menu={state.menu}>
+      <div>
         <section>
           <h2>画 廊</h2>
           <Gallery 
@@ -77,7 +54,7 @@ export default class Home extends Component {
           <h2>树形控件</h2>
           <Tree/>
         </section>
-      </Menu>
+      </div>
     )
   }
 }
