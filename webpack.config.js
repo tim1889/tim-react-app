@@ -99,7 +99,7 @@ module.exports = {
       template: path.resolve(__dirname, 'index.html'), // 源模板文件
       filename: 'index.html',
       showErrors: true,
-      inject: 'body',
+      inject: true,
     }),
     new webpack.DefinePlugin({
       'process.env': {

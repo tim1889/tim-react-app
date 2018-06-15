@@ -1,16 +1,16 @@
 const path = require("path");
 const webpack = require('webpack');
-const node_modules = path.resolve(__dirname, 'node_modules');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+// const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+// const node_modules = path.resolve(__dirname, 'node_modules');
 
 module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname,'./src/index.js'),
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'js/bundle.js'
+    publicPath: '/',
+    filename: 'bundle.js'
   },
   module: {
     rules: [{
@@ -21,21 +21,25 @@ module.exports = {
           presets: [
             "env",
             "stage-3",
-            "react",
-            "es2015",
+            "react"
           ]
         }
       },
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      use: [ "style-loader", "css-loader" ]
-    }, {
-      test: /\.html$/,
-      use: ['html-loader']
+      // use: ExtractTextWebpackPlugin.extract({
+      //   fallback: "style-loader",
+      //   use: "css-loader"
+      // })
+      use: [ "style-loader", "css-loader"]
     }, {
       test: /\.(scss|sass)$/,
-      use: [ "style-loader", "css-loader", "sass-loader?indentedSyntax" ]
+      // use: ExtractTextWebpackPlugin.extract({
+      //   fallback: "style-loader",
+      //   use: [ "css-loader", "sass-loader" ]
+      // })
+      use: [ "style-loader", "css-loader", "sass-loader" ]
     }, {
       test: /\.(png|jpeg|jpg|svg|gif|mp3|mp4)(\?.*)$/,
       use: [{
@@ -63,24 +67,24 @@ module.exports = {
     extensions: [ "*", ".js", ".json", ".jsx", ".css" ],
   },
   devServer: {
-    port: 3000,
     proxy: {
       '/api': 'http://localhost:3000'
     },
+    publicPath: '/',
     historyApiFallback: true,
-    overlay: true
+    overlay: true,
+    port: 3000
   },
   performance: {
     hints: false
   },
   devtool: '#eval-source-map',
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     title: 'Tim`is web',
-  //     template: 'index.html', // 源模板文件
-  //     filename: 'index.html',
-  //     showErrors: true,
-  //     inject: true,
-  //   })
-  // ]
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Tim`is web',
+      template: path.resolve(__dirname, 'index.html'),
+      showErrors: true,
+    }),
+    // new ExtractTextWebpackPlugin("styles.css")
+  ]
 }
