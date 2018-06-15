@@ -3,7 +3,8 @@ var webpack = require('webpack');
 // const node_modules = path.resolve(__dirname, 'node_modules');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 
 module.exports = {
@@ -28,24 +29,17 @@ module.exports = {
           presets: [
             "env",
             "stage-3",
-            "react",
-            "es2015",
+            "react"
           ]
         }
       },
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [ "style-loader", "css-loader" ],
-      })
+      use: [ MiniCssExtractPlugin.loader, "css-loader" ]
     }, {
       test: /\.(scss|sass)$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [ "style-loader", "css-loader", "sass-loader?indentedSyntax" ],
-      })
+      use: [ MiniCssExtractPlugin.loader, "css-loader", "sass-loader" ]
     }, {
       test: /\.(png|jpeg|jpg|svg|gif|mp3|mp4)(\?.*)$/,
       use: [{
@@ -89,6 +83,12 @@ module.exports = {
           test: /[\\/]node_modules[\\/]/,
           name: "vendor",
           chunks: "all"
+        },
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
         }
       }
     }
@@ -106,7 +106,10 @@ module.exports = {
         NODE_ENV: '"production"'
       }
     }),
-    // new ExtractTextPlugin('style.css?[hash]'),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
     new CleanPlugin('./dist/*', {
       root: __dirname,
       verbose:  true, //开启在控制台输出信息
