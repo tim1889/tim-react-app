@@ -15,10 +15,9 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 
 app.use(webpackHotMiddleware(compiler));
-
 app.get("*", (req, res, next) =>{
-  const filename = path.join(DIST_DIR, 'index.html');
-  complier.outputFileSystem.readFile(filename, (err, result) =>{
+  const filename = path.join(__dirname, 'index.html');
+  compiler.outputFileSystem.readFile(filename, (err, result) =>{
       if (err) { return(next(err)) }
       res.set('content-type', 'text/html')
       res.send(result)

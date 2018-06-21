@@ -13,7 +13,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, './dist/'),
-    publicPath:' http://localhost:3000',
+    publicPath:' http://localhost:3000/',
     filename: 'bundle.js'
   },
   module: {
