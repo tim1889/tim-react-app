@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 
-const Index = () => <div>Hello Tim!!</div>;
+const Index = () => <div>Hello Tim!!!!~~</div>;
 
 export default class App extends Component {
   render() {

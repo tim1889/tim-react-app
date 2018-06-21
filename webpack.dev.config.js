@@ -1,15 +1,19 @@
+// "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.config.js --open --hot",
+
 const path = require("path");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const node_modules = path.resolve(__dirname, 'node_modules');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname,'./src/index.js'),
+  entry: [
+    'webpack-hot-middleware/client',
+    path.resolve(__dirname, './src/index.js')
+  ],
   output: {
-    path: path.resolve(__dirname, './dist'),
-    // publicPath: '/',
+    path: path.resolve(__dirname, './dist/'),
+    publicPath:' http://localhost:3000',
     filename: 'bundle.js'
   },
   module: {
@@ -50,26 +54,27 @@ module.exports = {
       }
     }]
   },
-  resolve: {
-    // alias: {
-    //   'react': path.resolve(node_modules, 'react/cjs/react.development.js'),
-    //   'react-dom': path.resolve(node_modules, 'react/dist/react-dom.min.js'),
-    //   'react-router': path.resolve(node_modules, 'react-router-dom/umd/react-router-dom.js')
-    // },
-    extensions: [ "*", ".js", ".json", ".jsx", ".css" ],
-  },
-  devServer: {
-    proxy: {
-      '/api': 'http://localhost:3000'
-    },
-    // publicPath: '/',
-    historyApiFallback: true,
-    overlay: true,
-    port: 3000
-  },
-  performance: {
-    hints: false
-  },
+  // resolve: {
+  //   // alias: {
+  //   //   'react': path.resolve(node_modules, 'react/cjs/react.development.js'),
+  //   //   'react-dom': path.resolve(node_modules, 'react/dist/react-dom.min.js'),
+  //   //   'react-router': path.resolve(node_modules, 'react-router-dom/umd/react-router-dom.js')
+  //   // },
+  //   extensions: [ "*", ".js", ".json", ".jsx", ".css" ],
+  // },
+  // devServer: {
+  //   proxy: {
+  //     '/api': 'http://localhost:3000',
+  //   },
+  //   host: 'localhost',
+  //   port: 3000,
+  //   hot: true,
+  //   historyApiFallback: true,
+  //   overlay: true
+  // },
+  // performance: {
+  //   hints: false
+  // },
   devtool: '#eval-source-map',
   optimization: {
     splitChunks: {
@@ -84,6 +89,7 @@ module.exports = {
     }
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Tim`is web',
       template: path.resolve(__dirname, 'index.html'),
